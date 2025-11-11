@@ -114,7 +114,9 @@ __author__ = "TexasCoding"
 
 # Core client classes - renamed from Async* to standard names
 # Enable uvloop for better async performance (if available and not on Windows)
+import os
 import sys
+import asyncio
 
 from project_x_py.client import ProjectX
 
@@ -241,13 +243,19 @@ from project_x_py.utils import (
     setup_logging,
 )
 
-if sys.platform != "win32":
-    try:
-        import uvloop
+def _maybe_enable_uvloop() -> None:
+    # 1. オプトイン制御
+    if os.environ.get("PROJECTX_ENABLE_UVLOOP", "").strip() not in {"1", "true", "True"}:
+        return
+    
+    # 2. プラットフォーム制御
+    if sys.platform.startswith("win"):
+        return
+        
+    # 3. 安全な初期化
+    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
-        uvloop.install()
-    except ImportError:
-        pass  # uvloop not available, use default event loop
+_maybe_enable_uvloop()
 
 __all__ = [
     # Data Models

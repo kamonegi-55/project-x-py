@@ -42,17 +42,24 @@ dependencies = [
     "pydantic>=2.11.7",
     "pyyaml>=6.0.2",
     "orjson>=3.11.1",
-    "uvloop>=0.21.0",
     "msgpack-python>=0.5.6",
     "lz4>=4.4.4",
     "cachetools>=6.1.0",
     "plotly>=6.3.0",
     "deprecated>=1.2.18",
+    "python-dotenv>=1.0.1",
+    "tzdata>=2025.1; platform_system == 'Windows'",
 ]
 
 [project.optional-dependencies]
-# Real-time features (WebSocket support)
-realtime = ["signalrcore>=0.9.5", "websocket-client>=1.0.0"]
+realtime = [
+    "signalrcore>=0.9.5",
+    "websocket-client>=1.0.0",
+]
+
+uvloop = [
+    "uvloop>=0.21.0",
+]
 
 # Development dependencies
 dev = [

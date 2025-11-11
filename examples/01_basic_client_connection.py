@@ -16,7 +16,8 @@ Date: July 2025
 import asyncio
 
 from project_x_py import ProjectX, setup_logging
-
+from dotenv import load_dotenv
+load_dotenv()
 
 async def main():
     """Demonstrate basic async client connection and account verification."""

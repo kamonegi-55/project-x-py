@@ -16,6 +16,8 @@ import asyncio
 import logging
 
 from project_x_py import TradingSuite
+from dotenv import load_dotenv
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(
