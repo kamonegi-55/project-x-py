@@ -1,7 +1,7 @@
 依存からuvloopを削除してWindowsでもインストールできるようにしました。
 
 このプロジェクトでは、環境変数を管理するために .env ファイルを使用しています。  
-.env.example を.env にリネームしてください。  
+.env.example をコピーして.env にリネームしてください。  
 .env ファイルを開き、必要に応じて値を編集してください。  
 
 補足: examples/00_trading_suite_demo.py および examples/01_basic_client_connection.py にはすでに以下のコードが含まれています。  
